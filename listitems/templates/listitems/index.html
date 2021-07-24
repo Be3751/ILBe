@@ -1,0 +1,51 @@
+{% extends 'listitems/base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="display:inline-flex">
+    <form method="get" action="" name="filter_form" style="margin: 2px">
+        <input type="hidden" name="left" value="1">
+        <button type="submit" class="btn btn-light btn-outline-secondary">忘れ物</button>
+    </form>
+    <form method="get" action="" name="filter_form" style="margin: 2px">
+        <input type="hidden" name="unknown" value="2">
+        <button type="submit" class="btn btn-light btn-outline-secondary">放置物品</button>
+    </form>
+    <form method="get" action="" name="filter_form" style="margin: 2px">
+        <input type="hidden" name="past" value="3">
+        <button type="submit" class="btn btn-light btn-outline-secondary">期日超過</button>
+    </form>
+    <form method="get" action="" name="filter_form" style="margin: 2px">
+        <input type="hidden" value="">
+        <button type="submit" class="btn btn-light btn-outline-secondary">全表示</button>
+    </form>
+</div>
+<br>
+<br>
+<div class="font_size">
+    <table class="text-center table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">物品名</th>
+            <th scope="col">発見者</th>
+            <th scope="col">登録日</th>
+            <th scope="col">登録区分</th>
+        </tr> 
+        {% for item in items %}
+            {% if item %}
+                <tr>
+                    <td valign="middle"><a href="{% url 'detail' item.pk %}" role="button" class="btn btn-link" style="font-size: 10pt;">　{{ item.name }}　</a></td>
+                    <td valign="middle">　{{ item.founder }}　</td>
+                    <td valign="middle">　{{ item.date|date:"Y-m-j" }}　</td>
+                    {% if item.left_or_unknown == 1 %}
+                        <td valign="middle">　忘れ物　</td>
+                    {% else %}
+                        <td valign="middle">　放置物品　</td>
+                    {% endif %}
+                </tr>
+            {% endif %}        
+        {% endfor%} 
+    </table>
+</div>
+
+{% endblock %}

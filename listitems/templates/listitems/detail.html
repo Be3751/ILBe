@@ -1,0 +1,20 @@
+{% extends 'listitems/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="text-center">
+    <a href="{% url 'request' item.pk %}" role="button" class="btn btn-light btn-outline-secondary">持ち主申請</a>
+    <p></p>
+    <table class="table table-bordered">
+    <tr><th>物品名</th><td>{{ item.name }}</td></tr>
+    <tr><th>発見者</th><td>{{ item.founder }}</td></tr>
+    <tr><th>登録区分</th><td>{% if item.left_or_unknown == 1 %}忘れ物{% else %}放置物品{% endif %}</td></tr>
+    <tr><th>持ち主</th><td>{{ item.owner.name }}</td></tr>
+    <tr><th>登録日</th><td>{{ item.date|date:"Y-m-j" }}</td></tr>
+    <tr><th>期日</th><td>{{ item.deadline|date:"Y-m-j" }}</td></tr>
+    <tr><th>コメント</th><td>{% if item.comment == None %}{% else %}{{ item.comment }}{% endif %}</td></tr>
+    </table>
+    <img src="/{{ item.photo }}" width="40%">
+</div>
+ 
+{% endblock %}

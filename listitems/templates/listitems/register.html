@@ -1,0 +1,36 @@
+{% extends 'listitems/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="card text-center contact mx-auto rounded">
+    <div class="card-body">
+        <h2 class="mb-4">物品登録</h2>
+        <form method="post" enctype="multipart/form-data">
+            <!-- フォームを安全に送信するために必ず必要なタグ -->
+            {% csrf_token %}
+            <div class="mb-3">
+                {% render_field form.name class='form-control' placeholder='物品名' %}
+            </div>
+            <div class="mb-3">
+                {% render_field form.founder class='form-control' placeholder='発見者' %}
+            </div>
+            <div class="mb-3">
+                {% render_field form.left_or_unknown class='form-select' %}
+            </div>
+            <div class="mb-3">
+                {% csrf_token %}
+                {% render_field form.photo class='form-control' %}
+            </div>
+            <div class="mb-3">
+                {% csrf_token %}
+                {% render_field form.comment class='form-control' placeholder='コメントを入力して下さい' %}
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-warning" type="submit"><i class="fas fa-paper-plane"></i>登録</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
