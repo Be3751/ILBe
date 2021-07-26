@@ -52,6 +52,8 @@ class RegisterView(View):
     def post(self, request, *args, **kwargs):
         form = RegisterForm(request.POST, request.FILES)
         if form.is_valid():
+            owner = Owner()
+            owner.save()
             # 物品の新規登録
             item = Item()
             item.founder = form.cleaned_data['founder']
@@ -59,6 +61,7 @@ class RegisterView(View):
             item.photo = form.cleaned_data['photo']
             item.left_or_unknown = form.cleaned_data['left_or_unknown']
             item.comment = form.cleaned_data['comment']
+            item.owner = owner
             item.save()
             #LINE Notify
             if form.cleaned_data['left_or_unknown'] == 1:

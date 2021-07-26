@@ -34,7 +34,7 @@ class Item(models.Model):
     date = models.DateField('発見日', default=datetime.date.today)
     deadline = models.DateField('期日', default=due_date, max_length=100)
     comment = models.CharField('コメント', max_length=100, blank=True, null=True)
-    owner = models.ForeignKey(Owner, on_delete=models.PROTECT, verbose_name='持ち主', null=False, blank=True)
+    owner = models.ForeignKey(Owner, on_delete=models.PROTECT, verbose_name='持ち主', null=True, blank=True)
     # status = models.IntegerField(choices=STATUS, default=1, null=True)
 
     def __str__(self):
