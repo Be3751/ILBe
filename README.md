@@ -4,7 +4,7 @@ ILbe is a web application created with Django. We created this app to make our l
 
 # Note
  
-This app is seemed still to have some potential problems. So, we're planning to fix and update it.
+This app is seemed still to have some potential problems. So, we're planning to fix them up and update.
 
 # Author
  
