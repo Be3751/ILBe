@@ -1,13 +1,20 @@
-# ILBe
- 
-ILbe is a web application created with Django. We created this app to make our lab, ISDL - Intelligent Systems Design Laboratory, clean and neat. Users can register items left behind in our lab, see a list of those items, and check information of each items in the app. When items are registered, they are automatically tagged with discard deadlines.
+# ILBe - Items Left Behind
+## 概要
+研究室にある放置物品を管理するためのWebアプリケーションを制作しました。  
+研究室に置き忘れられた物品を登録することで自動で廃棄期限を設け、不要物品を一覧表示します。  
 
-# Note
- 
+## 機能
+本アプリの機能は以下です。
+- 物品の登録
+- 登録時のLINE通知
+- 物品の一覧表示
+- 物品一覧の表示切り替え
+- 所持品申請
+
+## 実装
+フロントエンド：Bootstrap  
+バックエンド：Django
+API：LINE Notify
+
+# 注意
 This app is seemed still to have some potential problems. So, we're planning to fix them up and update.
-
-# Author
- 
-* Developper：M. Sonobe & T. Koayashi. We belong to ISDL in Doshisha.
-* E-mail：masaya.tanks07@gmail.com
-```bash
