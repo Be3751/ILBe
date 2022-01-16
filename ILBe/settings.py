@@ -165,3 +165,5 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
+else:
+    SECRET_KEY = 'django-insecure-c916b$b9^f0rax7r)q^khy#el&(!g0=)x7^mfbu7l!ykn!rd^c'
