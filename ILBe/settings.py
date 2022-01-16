@@ -15,7 +15,11 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Local
+# BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Heroku
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -170,6 +174,5 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
-    print(BASE_DIR)
 else:
     SECRET_KEY = 'django-insecure-c916b$b9^f0rax7r)q^khy#el&(!g0=)x7^mfbu7l!ykn!rd^c'
