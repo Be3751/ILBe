@@ -18,11 +18,14 @@ from django.urls import path, include
 
 from django.conf.urls.static import static
 from django.conf import settings
+from listitems import views
 
 urlpatterns = [
     path('', include('listitems.urls')),
     path('admin/', admin.site.urls),
 ]
+
+handler500 = views.my_customized_server_error
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
