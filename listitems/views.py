@@ -10,13 +10,6 @@ import requests
 import os
 import datetime
 
-@requires_csrf_token
-def my_customized_server_error(request, template_name='500.html'):
-    import sys
-    from django.views import debug
-    error_html = debug.technical_500_response(request, *sys.exc_info()).content
-    return HttpResponseServerError(error_html)
-
 class IndexView(ListView):
     def get(self, request, *args, **kwargs):
         if request.GET.get('left') == "1":
@@ -127,3 +120,10 @@ class RequestView(View):
         return render(request, 'listitems/request.html', {
             'form': form
         })
+
+@requires_csrf_token
+def my_customized_server_error(request, template_name='500.html'):
+    import sys
+    from django.views import debug
+    error_html = debug.technical_500_response(request, *sys.exc_info()).content
+    return HttpResponseServerError(error_html)
