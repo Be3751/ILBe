@@ -61,6 +61,10 @@ class RegisterView(View):
             item.photo = form.cleaned_data['photo']
             item.left_or_unknown = form.cleaned_data['left_or_unknown']
             item.comment = form.cleaned_data['comment']
+
+#             owner = Owner()
+#             owner.save()
+
             item.owner = owner
             item.save()
             #LINE Notify
