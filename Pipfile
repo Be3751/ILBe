@@ -8,6 +8,10 @@ django = "*"
 django-widget-tweaks = "*"
 requests = "*"
 pillow = "*"
+django-heroku = "*"
+gunicorn = "*"
+pypi = "*"
+dj-database-url = "*"
 
 [dev-packages]
 

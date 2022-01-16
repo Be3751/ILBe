@@ -30,11 +30,11 @@ class Item(models.Model):
     name = models.CharField('物品名', max_length=100)
     founder = models.CharField('発見者名', max_length=100)
     left_or_unknown = models.IntegerField(choices=CHOICES, default=1, null=True)
-    photo = models.ImageField('写真', upload_to='images/')
+    photo = models.FileField('写真', upload_to='images/')
     date = models.DateField('発見日', default=datetime.date.today)
     deadline = models.DateField('期日', default=due_date, max_length=100)
     comment = models.CharField('コメント', max_length=100, blank=True, null=True)
-    owner = models.ForeignKey(Owner, on_delete=models.PROTECT, verbose_name='持ち主', null=False, blank=True)
+    owner = models.ForeignKey(Owner, on_delete=models.PROTECT, verbose_name='持ち主', null=True, blank=True)
     # status = models.IntegerField(choices=STATUS, default=1, null=True)
 
     def __str__(self):
