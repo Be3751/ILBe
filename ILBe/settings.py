@@ -32,12 +32,6 @@ except ImportError:
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-c916b$b9^f0rax7r)q^khy#el&(!g0=)x7^mfbu7l!ykn!rd^c'
 
-# Heroku
-if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
-    import django_heroku
-    django_heroku.settings(locals())
-
 ALLOWED_HOSTS = [
     '127.0.0.1',
     '.herokuapp.com',
@@ -165,3 +159,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+
+# Heroku
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    import django_heroku
+    django_heroku.settings(locals())
