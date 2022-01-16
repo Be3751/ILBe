@@ -34,7 +34,7 @@ except ImportError:
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '.herokuapp.com',
+    'ilbe-app.herokuapp.com/',
     '85e9-2001-ce8-107-c1f6-d0f3-40b0-ecaf-6bb.ngrok.io'
 ]
 
@@ -154,7 +154,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # STATIC_ROOTと名前が被ってるとのエラーで一旦コメントアウト
 # STATICFILES_DIRS = (
-#     (os.path.join(BASE_DIR, 'staticfiles')),
+#     (os.path.join(BASE_DIR, 'static')),
 # )
 
 # Default primary key field type
