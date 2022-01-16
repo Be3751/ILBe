@@ -150,8 +150,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Heroku
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# STATIC_ROOTと名前が被ってるとのエラーで一旦コメントアウト
 # STATICFILES_DIRS = (
 #     (os.path.join(BASE_DIR, 'staticfiles')),
 # )
