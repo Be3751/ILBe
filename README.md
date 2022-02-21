@@ -15,5 +15,5 @@
 
 ## 実装
 フロントエンド：Bootstrap  
-バックエンド：Django
-API：LINE Notify
+バックエンド：Django  
+API連携：LINE Notify
