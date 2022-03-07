@@ -15,4 +15,5 @@ pillow = "*"
 python_version = "3.8"
 
 [scripts]
-start = "python3 manage.py runserver"
+migrate = "zsh -c 'python3 manage.py makemigrations && python3 manage.py migrate'"
+dev = "python3 manage.py runserver"
