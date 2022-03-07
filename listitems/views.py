@@ -1,14 +1,14 @@
 from ILBe.settings import MEDIA_ROOT
 from django.db import models
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render, redirect
 from django.views.generic import View, DetailView, ListView
+from django.views.decorators.csrf import requires_csrf_token
 from listitems.models import Item, Owner
 from listitems.forms import RegisterForm, RequestForm
 import requests
 import os
 import datetime
-
 
 class IndexView(ListView):
     def get(self, request, *args, **kwargs):
@@ -61,6 +61,10 @@ class RegisterView(View):
             item.photo = form.cleaned_data['photo']
             item.left_or_unknown = form.cleaned_data['left_or_unknown']
             item.comment = form.cleaned_data['comment']
+
+#             owner = Owner()
+#             owner.save()
+
             item.owner = owner
             item.save()
             #LINE Notify
@@ -116,3 +120,10 @@ class RequestView(View):
         return render(request, 'listitems/request.html', {
             'form': form
         })
+
+@requires_csrf_token
+def my_customized_server_error(request, template_name='500.html'):
+    import sys
+    from django.views import debug
+    error_html = debug.technical_500_response(request, *sys.exc_info()).content
+    return HttpResponseServerError(error_html)
